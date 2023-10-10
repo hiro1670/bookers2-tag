@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <script src="https://kit.fontawesome.com/xxxxxxxxxx.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -12,8 +13,15 @@
     <%= render 'layouts/header' %>
       <main>
         <p id="notice"><%= notice %></p>
-        <div class="d-flex justify-content-center mb-2">
-          <%= render 'searches/form' %>
+        <div class="container">
+          <div class="row justify-content-around">
+            <div class="col-5">
+              <%= render 'searches/form' %>
+            </div>
+            <div class="col-4">
+              <%= render 'tagsearches/tagsearch' %>
+            </div>
+          </div>
         </div>
         <%= yield %>
       </main>

@@ -1,15 +1,17 @@
-<div id="rate_<%= book.id %>" class="form-group"></div>
+<div id="rate_<%= book.id %>"></div>
 <script>
 $(document).on('turbolinks:load', function() {
-  $('#rate_<%= book.id %>').empty();
-  $('#rate_<%= book.id %>').raty({
-    size: 20,
-    starOff:  '<%= asset_path('star-off.png') %>',
-    starOn : '<%= asset_path('star-on.png') %>',
-    starHalf: '<%= asset_path('star-half.png') %>',
-    half: true,
+  let elem = document.querySelector('#rate_<%= book.id %>');
+  if (elem == null) return;
+  
+  elem.innerHTML = "";
+  let opt = {  
+    starOn: "<%= asset_path('star-on.png') %>",
+    starOff: "<%= asset_path('star-off.png') %>",
+    starHalf: "<%= asset_path('star-half.png') %>",
+    score: "<%= book.rate %>",
     readOnly: true,
-    score: <%= book.rate %>,
-  });
+  };
+  raty(elem, opt);
 });
 </script>
